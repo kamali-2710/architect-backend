@@ -10,7 +10,7 @@ const userSchema = new mongoose.Schema({
     default: "client"
   },
 
-  // 🔥 architect fields
+  // 🔥  architect fields
   experience: String,
   specialization: String,
   location: String,
