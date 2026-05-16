@@ -6,29 +6,17 @@ const projectSchema = new mongoose.Schema(
     location: String,
     type: String,
     floor: String,
-    block: String,
-    budget: String,
-    deadline: String,
-    requirement: String,
     image: String,
 
-    clientId: String,
-    clientName: String,
-
-    architect: {
-      type: String,
-      default: ""
+    // 🔥 REQUIREMENT FULL OBJECT STORE
+    requirement: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Requirement",
     },
 
-    status: {
-      type: String,
-      default: "NEW"
-    },
+    architect: { type: String, default: null },
 
-    progress: {
-      type: Number,
-      default: 0
-    }
+    status: { type: String, default: "NEW" },
   },
   { timestamps: true }
 );

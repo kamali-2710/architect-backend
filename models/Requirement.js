@@ -9,17 +9,38 @@ const requirementSchema = new mongoose.Schema({
   deadline: String,
   budget: String,
   requirement: String,
+  image: String,
 
   clientId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "User"
+    ref: "User",
   },
 
   clientName: String,
+
+  architect: {
+    type: String,
+    default: "",
+  },
   status: {
     type: String,
-    default: "New"
-  }
-}, { timestamps: true });
+    default: "NEW",
+  },
+  completedNote: {
+    type: String,
+    default: "",
+  },
+
+  paymentStatus: {
+    type: String,
+    default: "PENDING",
+  },
+  completedImage: {
+    type: String,
+    default: "",
+  },
+}, {
+  timestamps: true
+});
 
 export default mongoose.model("Requirement", requirementSchema);
